@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BasicSwing basic = new BasicSwing();
+        BasicSwing basic = new BasicSwing(4);
 
     }
 }

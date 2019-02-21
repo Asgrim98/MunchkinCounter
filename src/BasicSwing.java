@@ -7,13 +7,14 @@ import java.util.Vector;
 public class BasicSwing extends JFrame {
 
 
-    private final int liczbaElementow = 5;
+    private int liczbaElementow;
 
     protected Vector<Integer> punkty = new Vector<Integer>( liczbaElementow );
     protected Vector<JPanel> panel = new Vector<JPanel>( liczbaElementow );
     protected Vector<JButton> buttonPlus = new Vector<JButton>( liczbaElementow );
     protected Vector<JButton> buttonMinus = new Vector<JButton>( liczbaElementow );
     protected Vector<JTextField> text = new Vector<JTextField>( liczbaElementow );
+    protected Vector<JTextArea> nazwa = new Vector<JTextArea>( liczbaElementow);
 
     private JPanel mainPanel = new JPanel( new FlowLayout(FlowLayout.CENTER, 20, 20));
 
@@ -62,6 +63,8 @@ public class BasicSwing extends JFrame {
 
             punkty.add(0);
 
+            nazwa.add(new JTextArea( "  " ));
+
             panel.add( new JPanel() );
             panel.get(i).setPreferredSize( new Dimension(200, 100) );
 
@@ -76,9 +79,10 @@ public class BasicSwing extends JFrame {
         }
     }
 
-    public BasicSwing(){
+    public BasicSwing(int liczbaElementow){
 
         super("Munchkin Counter");
+        this.liczbaElementow = liczbaElementow;
 
         setSize(500,500);
         setResizable(true);
@@ -88,6 +92,7 @@ public class BasicSwing extends JFrame {
 
         for( int i = 0; i < liczbaElementow; i++){
 
+            panel.get(i).add( nazwa.get(i) );
             panel.get(i).add( buttonMinus.get(i) );
             panel.get(i).add( buttonPlus.get(i) );
             panel.get(i).add( text.get(i) );
